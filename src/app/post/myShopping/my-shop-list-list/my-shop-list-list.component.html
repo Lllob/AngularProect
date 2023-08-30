@@ -1,0 +1,15 @@
+<div container>
+    <div class="list">
+        <img src="{{post?.imageUrl}}" alt="img">
+        <article class="art">
+            <h2 class="title2"><span>Tytle: </span>{{post?.title}}</h2>
+            <p class="type"><span>Type of room: </span>{{post?.type}}</p>
+            <!-- <p class="desc"><span>Description: </span>{{el.description}}</p>
+            <p class="price"><span>Price: </span>{{el.price}}</p> -->
+            <div>
+            <a [routerLink]="['/details/', post?._id]" class="btn">Details</a>
+             </div>
+        </article>
+     </div>
+     <br>
+    </div>

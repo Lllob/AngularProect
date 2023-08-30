@@ -1,0 +1,8 @@
+<div class="nopost" *ngIf="noPost">
+   <h1>No posts yet</h1>
+</div>
+
+<div class="posts" *ngIf="!noPost">
+    <app-my-list-list *ngFor="let post of myPosts" [post]="post"></app-my-list-list>
+       <!--                                      [post] e props(otiva vav childrena // @Input() post:...)-->
+</div>

@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="div">
+        <h1>Create New Post</h1>
+        <p>Please fill all fields.</p>
+    </div>
+
+    <form [formGroup]="createForm" (submit)="createPost()">
+        <div class="formDiv">
+            <div class="inputD">
+                <label for="title">Title</label>
+                <input formControlName="title" type="text">
+            </div>
+            <div class="danjer" *ngIf="createForm.controls['title'].touched && createForm.controls['title'].invalid">
+                <p *ngIf="createForm.controls['title'].errors?.['required']" class="error">
+                    This field is required!
+                </p>
+                <p *ngIf="createForm.controls['title'].errors?.['minlength']" class="error">
+                    This field must be at least {{createForm.controls['title'].errors?.['minlength'].requiredLength}} character long!
+                </p>
+            </div>
+
+            <div class="inputD">
+               <label for="imageUrl">Image url</label>
+               <input formControlName="imageUrl" type="text">
+            </div>
+            <div class="danjer" *ngIf="createForm.controls['imageUrl'].touched && createForm.controls['imageUrl'].invalid">
+                <p *ngIf="createForm.controls['imageUrl'].errors?.['required']" class="error">
+                    This field is required!
+                </p>
+                <p *ngIf="createForm.controls['imageUrl'].errors?.['pattern']" class="error">
+                    Invalid Url address!
+                </p>
+            </div>
+
+            <div class="inputD">
+                <label for="description">Description</label>
+                <input formControlName="description" type="text">
+             </div>
+             <div class="danjer" *ngIf="createForm.controls['description'].touched && createForm.controls['description'].invalid">
+                
+                <p *ngIf="createForm.controls['description'].errors?.['required']" class="error">
+                    This field is required
+                </p>
+                <p *ngIf="createForm.controls['description'].errors?.['minlength']" class="error">
+                    This field must be at least {{createForm.controls['description'].errors?.['minlength'].requiredLength}} character long!
+                </p>
+            </div>
+
+             <div class="inputD">
+                <label for="price"> Price</label>
+                <input formControlName="price" type="text">
+             </div>
+             <div class="danjer" *ngIf="createForm.controls['price'].touched && createForm.controls['price'].invalid">
+                <p *ngIf="createForm.controls['price'].errors?.['required']">
+                    This field is required!
+                </p>
+                <p *ngIf="createForm.controls['price'].errors?.['min']" class="error">
+                    This field must be at least {{createForm.controls['price'].errors?.['min'].min}} !
+                </p>
+            </div>
+
+             <div class="inputD">
+                <label for="type">Select Room:</label>
+                <select formControlName="type" id="type" value="Apartment">
+                    <option value="Apartment">Apartment</option>
+                    <option value="Double room">Double room</option>
+                    <option value="Single room">Single room</option>
+                    <option value="Other">Other</option>
+                </select>
+             </div>
+
+             <button  class="btn" [disabled]="inValid">Create</button> <!--[disabled]="inValid"-->
+        </div>
+    </form>
+</div>

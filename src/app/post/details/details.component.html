@@ -1,0 +1,24 @@
+<div class="list" *ngIf="post">
+    <img src="{{post.imageUrl}}" alt="img">
+    <article class="art">
+        <h2 class="title2"><span>Tytle: </span>{{post.title}}</h2>
+        <p class="type"><span>Type of room: </span>{{post.type}}</p>
+        <p class="desc"><span>Description: </span>{{post.description}}</p>
+        <p class="price"><span>Price: </span>{{post.price}}</p>
+
+       <div *ngIf="ownerBoolen">
+         <div class="totalBy">Total buy: {{totalBuy}}</div>
+         <button [routerLink]="['/edit/', post._id]" class="btn">Edit</button>
+         <button id="{{post._id}}" (click)="delitePost($event)" class="btn">Delite</button>
+       </div>
+
+         <div *ngIf="!ownerBoolen">
+            <span  *ngIf="!buyBoolen">
+            <button id="{{post._id}}" (click)="buyPost($event)" class="btn">Buy</button>
+            </span>
+            <!-- <span  *ngIf="buyBoolen"> -->
+            <div class="totalBy">Total buy: {{totalBuy}}</div>
+            <!-- </span> -->
+         </div>
+    </article>
+ </div>

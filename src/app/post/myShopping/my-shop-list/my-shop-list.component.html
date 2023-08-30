@@ -1,0 +1,8 @@
+<div class="nopost" *ngIf="noPost">
+    <h1>Your basket is emty!</h1>
+ </div>
+ 
+ <div class="posts" *ngIf="!noPost">
+     <app-my-shop-list-list *ngFor="let post of myShopping" [post]="post"></app-my-shop-list-list>
+        <!--                                      [post] e props(otiva vav childrena // @Input() post:...)-->
+ </div>

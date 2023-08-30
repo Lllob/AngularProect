@@ -1,0 +1,23 @@
+<div class="catalog">
+    <h1 class="title">Welcome!</h1>
+    <div class="lists" *ngIf="noPost">
+       <div class="nopost">
+        <h1>We don't have avelable offers</h1>
+       </div>
+    </div> 
+        <div class="container" *ngFor="let el of allPosts">
+         <div class="list">
+            <img src="{{el.imageUrl}}" alt="img">
+            <article class="art">
+                <h2 class="title2"><span>Tytle: </span>{{el.title}}</h2>
+                <p class="type"><span>Type of room: </span>{{el.type}}</p>
+                <!-- <p class="desc"><span>Description: </span>{{el.description}}</p>
+                <p class="price"><span>Price: </span>{{el.price}}</p> -->
+                <div *ngIf="authService.isAuthenticated()">
+                <a [routerLink]="['/details/', el._id]" class="btn">Details</a>
+                 </div>
+            </article>
+         </div>
+         <br>
+        </div>
+</div>

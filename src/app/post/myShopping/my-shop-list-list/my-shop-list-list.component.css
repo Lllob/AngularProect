@@ -1,0 +1,40 @@
+
+.list {
+    width: 90%;
+    height: 62vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+    margin: 0 auto;
+    border: 1px solid antiquewhite;;
+    border-radius: 20px;
+}
+
+.list h1 {
+    text-align: center;
+    font-size: 40px;
+}
+
+.list img {
+    width: 50%;
+    height: 50vh;
+    padding-left: 20px;
+} 
+
+.list .art {
+    width: 50%;
+    font-size: 20px;
+    text-align: center;
+}
+
+.list .btn {
+    text-decoration: none;
+    padding: 10px 15px;
+    color: white;
+    font-size: 20px;
+    background-color: rgb(21, 21, 234);
+    border: 1px solid rgb(21, 21, 234);
+    border-radius: 8px;
+}

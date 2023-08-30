@@ -1,0 +1,68 @@
+<div class="register">
+    
+    <form  [formGroup]="registerForm" (ngSubmit)="handleRegister()" action="post" class="form">
+      <p class="desc">Registration</p>
+
+      <!--<pre>{{registerForm.value['password'] | json}}</pre>-->
+      <div class="username">
+        <label for="username">Username</label>
+        <input type="text" formControlName="username">
+      </div>
+      <div class="danjer" *ngIf="registerForm.controls['username'].touched && registerForm.controls['username'].invalid">
+        <p *ngIf="registerForm.controls['username'].errors?.['required']" class="error">
+          Username is required!
+        </p>
+        <p *ngIf="registerForm.controls['username'].errors?.['minlength']" class="error">
+          Username mast by at least {{registerForm.controls['username'].errors?.['minlength'].requiredLength}} character long!
+      </p>
+      </div>
+
+      <div class="email">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email">
+      </div>
+      <div class="danjer" *ngIf="registerForm.controls['email'].touched &&  registerForm.controls['email'].invalid">
+        <p *ngIf="registerForm.controls['email'].errors?.['required']">
+          Email is required!
+        </p>
+        <p *ngIf="registerForm.controls['email'].errors?.['pattern']" class="error">
+          Invalid email address!
+      </p>
+      </div>
+
+      <div class="password">
+        <label for="password">Password</label>
+        <input type="text" formControlName="password">
+      </div>
+      <div class="danjer" *ngIf="registerForm.controls['password'].touched &&  registerForm.controls['password'].invalid">
+        <p *ngIf="registerForm.controls['password'].errors?.['required']">
+          This field is required!
+        </p>
+        <p *ngIf="registerForm.controls['password'].errors?.['minlength']" class="error">
+          Password mast by at least {{registerForm.controls['password'].errors?.['minlength'].requiredLength}} character long!
+      </p>
+      </div>
+
+      <div class="repass">
+        <label for="rePass">Repeat password</label>
+        <input type="text" formControlName="rePass">
+      </div>
+      <div class="danjer" *ngIf="registerForm.controls['rePass'].touched && registerForm.controls['rePass'].invalid">
+        <p *ngIf="registerForm.controls['rePass'].errors?.['required']">
+          This field is required!
+        </p>
+      </div>
+      <div class="danjer" *ngIf="registerForm.controls['rePass'].valid && registerForm.value['password'] !== registerForm.value['rePass']">
+       <p>Password don't match!</p>
+      </div>
+      
+      <button [disabled]="checkbtn">Create Account</button> <!--[disabled]="registerForm.invalid"-->
+
+      <div class="horizontal"></div>
+      
+        <p class="text-center">
+            Have an account?
+            <a routerLink="/login">Log In</a>
+        </p>
+    </form>
+</div>

@@ -1,0 +1,72 @@
+<div class="container">
+    <form [formGroup]="editForm" (submit)="editPost()">
+        <div class="formDiv">
+            <div class="inputD">
+                <label for="title">Title</label>
+                <input formControlName="title" type="text" value="{{post?.title}}">
+            </div>
+              <!-- <div class="danjer" *ngIf="editForm.controls['title'].touched && editForm.controls['title'].invalid">
+                <p *ngIf="editForm.controls['title'].errors?.['required']" class="error">
+                    This field is required!
+                </p>
+                <p *ngIf="editForm.controls['title'].errors?.['minlength']" class="error">
+                    This field must be at least {{editForm.controls['title'].errors?.['minlength'].requiredLength}} character long!
+                </p>
+            </div>  -->
+
+            <div class="inputD">
+               <label for="imageUrl">Image url</label>
+               <input formControlName="imageUrl" type="text" value="{{post?.imageUrl}}">
+            </div> 
+            <!-- <div class="danjer" *ngIf="editForm.controls['imageUrl'].touched && editForm.controls['imageUrl'].invalid">
+                <p *ngIf="editForm.controls['imageUrl'].errors?.['required']" class="error">
+                    This field is required!
+                </p>
+                <p *ngIf="editForm.controls['imageUrl'].errors?.['pattern']" class="error">
+                    Invalid Url address!
+                </p>
+            </div> -->
+
+            <div class="inputD">
+                <label for="description">Description</label>
+                <input formControlName="description" type="text" value="{{post?.description}}">
+             </div> 
+             <!-- <div class="danjer" *ngIf="editForm.controls['description'].touched && editForm.controls['description'].invalid">
+                
+                <p *ngIf="editForm.controls['description'].errors?.['required']" class="error">
+                    This field is required
+                </p>
+                <p *ngIf="editForm.controls['description'].errors?.['minlength']" class="error">
+                    This field must be at least {{editForm.controls['description'].errors?.['minlength'].requiredLength}} character long!
+                </p>
+            </div> -->
+
+             <div class="inputD">
+                <label for="price"> Price</label>
+                <input formControlName="price" type="text" value="{{post?.price}}">
+             </div>
+             <!-- <div class="danjer" *ngIf="editForm.controls['price'].touched && editForm.controls['price'].invalid">
+                <p *ngIf="editForm.controls['price'].errors?.['required']">
+                    This field is required!
+                </p>
+                <p *ngIf="editForm.controls['price'].errors?.['min']" class="error">
+                    This field must be at least {{editForm.controls['price'].errors?.['min'].min}} !
+                </p>
+            </div> -->
+
+             <div class="inputD">
+                <label for="type">Select Room:</label>
+                <select formControlName="type" id="type" value="Apartment">
+                    <option value="Apartment">Apartment</option>
+                    <option value="Double room">Double room</option>
+                    <option value="Single room">Single room</option>
+                    <option value="Other">Other</option>
+                </select>
+             </div>
+
+             <button>Edit</button> <!--[disabled]="editForm.invalid"-->
+        </div>
+    </form>
+</div> 
+
+

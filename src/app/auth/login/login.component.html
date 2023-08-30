@@ -1,0 +1,40 @@
+<div class="login">
+    
+    <form action="post" class="form" [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+      <p class="desc">Login</p>
+
+      <!--<pre>{{loginForm.value['email'] | json}}</pre>-->
+      <div class="email">
+        <label for="email">Email</label>
+        <input type="text" formControlName="email">
+      </div>
+      <div class="danjer" *ngIf="loginForm.controls['email'].touched &&  loginForm.controls['email'].invalid">
+          <p *ngIf="loginForm.controls['email'].errors?.['required']">
+            Email is required!
+          </p>
+          <p *ngIf="loginForm.controls['email'].errors?.['pattern']" class="error">
+            Invalid email address!
+        </p>
+      </div>
+
+      <div class="password">
+        <label for="password">Password</label>
+        <input type="text" formControlName="password">
+      </div>
+      <div class="danjer" *ngIf="loginForm.controls['password'].touched &&  loginForm.controls['password'].invalid">
+        <p *ngIf="loginForm.controls['password'].errors" class="error">
+            Email or password don't match!
+      </p>
+      </div>
+
+      
+      <button [disabled]="loginForm.invalid">Login</button> <!--[disabled]="loginForm.invalid"-->
+
+      <div class="horizontal"></div>
+      
+        <p class="text-center">
+            Don't have an account?
+            <a  routerLink="/register">Register</a>
+        </p>
+    </form>
+</div>
